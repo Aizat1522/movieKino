@@ -1,0 +1,26 @@
+#movieCards{
+  .moviecards{
+    width: 300px;
+    border: black 2px solid;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img{
+      width: 100%;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+    h2{
+      font-size: 20px;
+      font-weight: 700;
+      padding: 20px 0 10px 0;
+    }
+    h4{
+      font-size: 15px;
+      font-weight: 700;
+      padding: 0 0 10px 0;
+    }
+  }
+}

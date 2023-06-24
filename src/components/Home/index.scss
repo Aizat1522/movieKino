@@ -1,0 +1,39 @@
+#home{
+  .home{
+    background: url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/sfjqJDmNqMIImO5khiddb9TARvO.jpg") no-repeat center/cover;
+    object-fit: cover;
+    min-height: 45vh;
+      &--one{
+      }
+    h1{
+      font-size: 50px;
+      padding: 60px 0 0 40px;
+      color: white;
+    }
+    h3{
+      padding: 0 0 0 40px;
+      color: white;
+      font-size: 30px;
+      }
+      input{
+
+        margin: 70px 0 0 40px;
+        padding-left: 20px;
+        border-radius: 25px;
+        font-size: 25px;
+        position: relative;
+        width: 90%;
+        height: 50px;
+
+    }
+    button{
+      position: absolute;
+      top: 41.8%;
+      left: 80%;
+      padding: 15px 30px;
+      border-radius: 25px;
+      background: aqua;
+      font-size: 17px;
+    }
+  }
+}

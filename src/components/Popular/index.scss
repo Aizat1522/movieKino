@@ -1,0 +1,9 @@
+#popular{
+  padding: 50px 0;
+  .popular{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 100px;
+  }
+}

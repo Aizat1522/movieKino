@@ -1,0 +1,9 @@
+#topRated{
+  padding: 50px 0;
+  .topRated{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 100px;
+  }
+}

@@ -1,0 +1,31 @@
+@import "components/Header/index";
+@import "components/Home/index";
+@import "components/Footer/index";
+@import "components/Popular/index";
+@import "components/TopRated/index";
+@import "components/MovieCard/index";
+@import "components/MovieCards/index";
+@import "components/Actors/index";
+@import "components/Triler/index";
+@import "components/MovieActors/index";
+@import "Page/Details/index";
+@import "Page/ActorDetails/index";
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+button{
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+}
+.container{
+  margin: 0 auto;
+  width: 80%;
+}
