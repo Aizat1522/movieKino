@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {API_KEY} from "../../API";
 import {useParams} from "react-router-dom";
 import MovieCard from "../MovieCard";
+import { LanguageContext } from '../../context';
 
 
 const Home = () => {
+    const {dark} = useContext(LanguageContext)
     const {movieId} = useParams()
     const [home, setHome] = useState([])
     const getHome = (key) => {
@@ -16,7 +18,7 @@ const Home = () => {
         getHome(API_KEY)
     }, [])
     return (
-        <section id="home">
+        <section id="home" style={{background: dark ? "black" : "white"}}>
             <div className="container">
                 <div className="home">
                     <div className="home--one">

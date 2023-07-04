@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {API_KEY} from "../../API";
+import { LanguageContext } from '../../context';
 
 const Triler = ({id}) => {
     const [triler, setTriler] = useState([])
-
+    const {dark} = useContext(LanguageContext)
 
     const getTraler = (key) => {
         axios(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${key}&language=en-US`)
@@ -15,9 +16,9 @@ const Triler = ({id}) => {
     }, [])
     console.log(triler)
     return (
-        <div id='triler'>
+        <div id='triler' style={{background: dark ?"black":"white"}}>
             <div className="container">
-                <h1 className='title'>~Трейлер~</h1>
+                <h1 style={{color:dark ? "white": "black"}} className='title'>~Трейлер~</h1>
                 <div className="triler">
                     {
                         triler.slice(0, 1).map(el => (

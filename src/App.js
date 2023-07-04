@@ -7,6 +7,7 @@ import Popular from "./components/Popular";
 import TopRated from "./components/TopRated";
 import Details from "./Page/Details";
 import ActorDetails from "./Page/ActorDetails";
+import Search from './Page/Search';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path={'/topRated'} element={<TopRated/>}/>
             <Route path={'/movie/details/:movieId'} element={<Details/>}/>
             <Route path={'/movie/details/actor/:actorId'} element={<ActorDetails/>}/>
+            <Route path={'/movie/search/:movieName'} element={<Search/>}/>
         </Routes>
       <Footer/>
     </div>

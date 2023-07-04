@@ -1,32 +1,35 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {API_KEY} from "../../API";
 import MovieActor from "../../components/MovieActors";
 import MovieActors from "../../components/MovieActors";
+import { LanguageContext } from '../../context';
 
 const ActorDetails = () => {
     const {actorId} = useParams()
+    const{language} = useContext(LanguageContext)
+    const {dark} = useContext(LanguageContext)
 
     const [further,setFurther] = useState(false)
 
     const [actorDetails, setActorDetails] = useState({})
     const getActorDetails = (key) =>{
-        axios(`https://api.themoviedb.org/3/person/${actorId}?api_key=${key}&language=en-US`)
+        axios(`https://api.themoviedb.org/3/person/${actorId}?api_key=${key}&language=${language}`)
             .then(res => setActorDetails(res.data))
     }
     useEffect(()=>{
         getActorDetails(API_KEY)
-    },[])
+    },[language])
     console.log('actor',actorDetails)
     const{profile_path, name, biography, also_known_as,birthday,place_of_birth} = actorDetails
     const handleFurther =() =>{
         setFurther(!further);
     }
     return (
-        <div id='actor'>
+        <div id='actor' style={{background: dark ? "black" : "white"}}>
             <div className="container">
-                <div className="actor">
+                <div className="actor" style={{color: dark ? "white" : "black"}}>
                     <img src={`https://www.themoviedb.org/t/p/w138_and_h175_face/${profile_path}`} alt=""/>
                     <div className="actor--title">
                        <h1>{name}</h1>

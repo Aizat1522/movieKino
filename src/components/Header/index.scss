@@ -1,6 +1,7 @@
 #header{
   padding: 24px 0;
-  background: black;
+  background: rgb(67, 45, 45);
+
   .header{
     display: flex;
     align-items: center;
@@ -12,11 +13,24 @@
       .active{
         color: aqua;
       }
+      
       a{
         font-size: 24px;
         font-weight: 700;
         color: white;
         margin: 0 20px;
+      }
+    }
+    select{
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+    &--dark{
+      button{
+        padding: 10px 15px;
+        font-size: 25px;
+        background: 0;
       }
     }
     &--search{

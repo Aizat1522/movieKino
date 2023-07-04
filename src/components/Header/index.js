@@ -1,8 +1,18 @@
-import React from 'react';
-import {NavLink} from "react-router-dom";
-import {BsFillSearchHeartFill} from "react-icons/bs";
+import React, { useContext, useState } from 'react';
+import {NavLink, useNavigate} from "react-router-dom";
+import { LanguageContext } from '../../context';
+import {BsFillSunFill} from 'react-icons/bs'
+
 
 const Header = () => {
+    const [search, setSearch] = useState("")
+    const {language}= useContext(LanguageContext)
+    const {setLanguage}= useContext(LanguageContext)
+    const {dark} = useContext(LanguageContext)
+    const {setDark} = useContext(LanguageContext)
+    const nav = useNavigate()
+    console.log(search);
+    console.log("lan",language);
     return (
         <header id="header">
             <div className="container">
@@ -12,10 +22,32 @@ const Header = () => {
                         <NavLink to={'/'}>Home</NavLink>
                         <NavLink to={'/popular'}>Popular</NavLink>
                         <NavLink to={'topRated'}>Top Rated</NavLink>
-                    </div>
+                         </div>
+                         <select onChange={(e) => setLanguage(e.target.value)}>
+                            <option value="en-US">English</option>
+                            <option value="ru-RU">Русский</option>
+                            <option value="fr-FR">France</option>
+                         </select>
+                         <div className="header--dark">
+                            <button onClick={() => setDark(!dark)}>
+                                 <BsFillSunFill style={{color: dark ? "black" : "white"}}/> </button>                        
+                         </div>
                     <div className="header--search">
-                        <input type="text" placeholder='search'/>
-                        <button>search</button>
+                        <input type= "text"
+                        placeholder='search'
+                         onChange={(e) =>{
+                            setSearch(e.target.value);
+                        }}
+
+                        value={search}
+                        />
+                        {search.length ? (
+                            <button
+                             onClick={() => {nav(`/movie/search/${search}`);
+                        setSearch('');
+                        }}
+                        >search</button>
+                        ) : null}
                     </div>
                 </div>
             </div>

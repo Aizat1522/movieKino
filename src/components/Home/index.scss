@@ -1,8 +1,10 @@
 #home{
+    
   .home{
     background: url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/sfjqJDmNqMIImO5khiddb9TARvO.jpg") no-repeat center/cover;
     object-fit: cover;
     min-height: 45vh;
+    
       &--one{
       }
     h1{
@@ -28,7 +30,7 @@
     }
     button{
       position: absolute;
-      top: 41.8%;
+      top: 33.9%;
       left: 80%;
       padding: 15px 30px;
       border-radius: 25px;

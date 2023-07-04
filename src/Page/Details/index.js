@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {API_KEY} from "../../API";
@@ -7,6 +7,7 @@ import {BsFillBookmarkFill, BsListStars} from "react-icons/bs";
 import Actors from "../../components/Actors";
 import Triler from "../../components/Triler";
 import {FaMinus} from "react-icons/fa";
+import { LanguageContext } from '../../context';
 
 const Details = () => {
     const [model, setModel] = useState(false)
@@ -18,14 +19,14 @@ const Details = () => {
     const {movieId} = useParams()
     console.log(movieId)
     const [details, setDetails] = useState({})
-
+    const{language} =useContext(LanguageContext)
     const getDetails = (key) => {
-        axios(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${key}&language=en-US`)
+        axios(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${key}&language=${language}`)
             .then(res => setDetails(res.data))
     }
     useEffect(() => {
         getDetails(API_KEY)
-    }, [])
+    }, [language])
     console.log(details)
     const {title, poster_path, release_date, tagline, overview, genres, runtime, vote_average} = details
 
